@@ -62,11 +62,11 @@ public class Main {
         return elemCount;
     }
 
-    public static Set<String> arrayDuplicateElements(ArrayList<String> arrayList) {
+    public static Set<String> arrayDuplicateElements(ArrayList<String> arrayList) { // Метод выделения повторяющихся слов
         Set<String> set = new HashSet<>();
         for (int i = 0; i < arrayList.size(); i++) {
             for (int j = i + 1; j < arrayList.size(); j++) {
-                if (arrayList.get(i).equals(arrayList.get(j))) {
+                if (arrayList.get(i).equals(arrayList.get(j))) { // Если слова совпадают, то записываются в сет
                     set.add(arrayList.get(i));
                 }
             }
@@ -74,15 +74,15 @@ public class Main {
         return set;
     }
 
-    public static void arrayUniqueElements(Set<String> set, ArrayList<String> arrayList) {
-        Iterator<String> iterator = arrayList.iterator();
-        String[] repeatArr = new String[set.size()];
-        set.toArray(repeatArr);
+    public static void arrayUniqueElements(Set<String> set, ArrayList<String> arrayList) { // Получение уникальных слов
+        Iterator<String> iterator = arrayList.iterator(); // Создание итератора для исходного массива
+        String[] repeatArr = new String[set.size()]; // Создание нового массива для преобразования сета
+        set.toArray(repeatArr); // Передача значений сета в массив
         while (iterator.hasNext()) {
             String str = iterator.next();
             for (int i = 0; i < repeatArr.length; i++) {
-                if (str.equals(repeatArr[i])) {
-                    iterator.remove();
+                if (str.equals(repeatArr[i])) { // Сравнение элементов исходного массива с повторявшимися элементами
+                    iterator.remove(); // Удаление найденных элементов из массива
                 }
             }
         }
